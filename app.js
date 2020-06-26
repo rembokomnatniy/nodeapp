@@ -23,6 +23,7 @@ mongoose.connect('mongodb+srv://danilko:Moyo2013@cluster0-qfwzj.mongodb.net/esho
 require('./config/passport');
 
 var app = express();
+var PORT = process.env.PORT || 8080
 
 // view engine setup
 app.engine('.hbs', exphbs({defaukLayout: 'layout', extname: '.hbs'}))
@@ -47,7 +48,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
   res.locals.login = req.isAuthenticated();
-  res.locals.session = req.session; 
+  res.locals.session = req.session;
   next();
 });
 
@@ -69,5 +70,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen(PORT, () =>{
+  console.log('Server has been started...');
+})
 
 module.exports = app;
