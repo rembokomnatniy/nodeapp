@@ -20,10 +20,10 @@
             <strong>{{this.item.title}}</strong>
             <span class="label label-success">${{ this.price }}</span>
             <span class="badge badge-secondary">{{ this.qty }}</span>
-            <p>
+            <p><img src="{{ this.item.imagePath }}" class="card-img-top" alt="..."></p>
             <div class="btn-group">
-              <button class="btn btn-primary" onClick="reduce()" role="button" id='red'>Reduce by 1</button>
-              <button class="btn btn-primary" onClick="remove()" role="button" id='rem'>Remove all</button>
+              <button class="btn btn-primary" onсlick="reduce()" role="button" id='red'>Reduce by 1</button>
+              <button class="btn btn-primary" onсlick="remove()" role="button" id='rem'>Remove all</button>
             </div>
           </li>
         {{/each}}
